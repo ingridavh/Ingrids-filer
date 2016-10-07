@@ -1,0 +1,254 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{bbold}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{braket}
+
+
+\begin{document}
+\title{FYS3110 Midterm exam}
+\author{Ingrid A V Holm}
+\maketitle
+
+
+\section{Problem 2}
+
+\begin{flushleft}
+We have:
+
+\begin{equation}
+\ket{\psi(s)} \equiv e^{-\hat{H}s} \ket{\psi}
+\end{equation}
+
+If $s= \frac{it}{\hbar}$ this would be the time propagator. However, $s$ is \textit{real}. We can expand $e^{-Hs}$ to get $\ket{\psi(s)}$:
+
+$$
+\ket{\psi(s)} =
+e^{-\hat{H}s}
+\ket{\psi}
+= (1 + s \hat{H} + \frac{s^2}{2!} \hat{H} \hat{H} + \frac{s^3}{3!} \hat{H} \hat{H} \hat{H} + ...) \ket{\psi}
+$$
+\end{flushleft}
+
+MOVE DOWN WHEN FINISHED
+
+
+\section{Problem 1} \begin{flushleft}
+This problem is about spin-$1/2$ systems, where for a singel spin-$1/2$ we have the simultaneous orthonormal eigenstates of the spin squared operator $\hat{S}^2$ and spin z-component $\hat{S}_z$:
+
+\begin{equation}
+\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2
+\end{equation}
+
+\begin{equation}
+\ket{\uparrow} \equiv
+\ket{s= \frac{1}{2} \text{, } m_s = + \frac{1}{2}} \text{ ; } \ket{\downarrow} \equiv
+\ket{s= \frac{1}{2} \text{, } m_s = - \frac{1}{2}}
+\end{equation}
+
+And we have:
+
+\begin{equation}
+\hat{S}^2 \ket{m_s = \pm\frac{1}{2} }  = \frac{\hbar^2}{2} \ket{m_s = \pm \frac{1}{2}}
+\end{equation}
+
+\begin{equation}
+\hat{S}_z \ket{\uparrow} = +\frac{\hbar}{2} \ket{\uparrow} \text{ ; }
+\hat{S}_z \ket{\downarrow} = -\frac{\hbar}{2} \ket{\downarrow}
+\end{equation}
+
+We also have the commutation relations
+
+\begin{equation}
+[ \hat{S}_x, \hat{S}_y ] = i \hbar \hat{S}_z \text{ , } [ \hat{S}_y, \hat{S}_z ] = i \hbar \hat{S}_x \text{ , }
+[ \hat{S}_z, \hat{S}_x ] = i \hbar \hat{S}_y
+\end{equation}
+
+In addition we have the lowering and raising operators:
+
+\begin{equation}
+\hat{S}_{\pm} = \hat{S}_x \pm i \hat{S}_y
+\end{equation}
+\end{flushleft}
+
+\pagebreak
+\subsection{}
+
+\begin{flushleft}
+We wish to show that $\hat{S}_+ \ket{\downarrow}$ is an eigenstate of $\hat{S}_z$. In advance, we know that $\hat{S}_+$ is the raising operator, which raises $m_s$ by one (in this case $m_s \rightarrow +\frac{1}{2}$), so this \textit{should } give an eigenstate.
+\end{flushleft}
+
+\begin{flushleft}
+We begin by finding the commutation relation $[\hat{S}_z, \hat{S}_+]$:
+
+$$
+[\hat{S}_z, \hat{S}_+] = \hat{S}_z \hat{S}_+ - \hat{S}_+ \hat{S}_z = \hat{S}_z (\hat{S}_x + i \hat{S}_y) - (\hat{S}_x + i \hat{S}_y) \hat{S}_z = [\hat{S}_z, \hat{S}_x] - i [\hat{S}_y, \hat{S}_z]
+$$
+
+$$
+[\hat{S}_z, \hat{S}_+] = i \hbar \hat{S}_y - i \cdot i \hbar \hat{S}_x = \hbar (\hat{S}_x + i \hat{S}_y) = \hbar \hat{S}_+
+$$
+
+Now we use this in the expression
+
+$$
+\hat{S}_z ( \hat{S}_+ \ket{\downarrow}) = (\hat{S}_+\hat{S}_z +\hbar \hat{S}_+) \ket{\downarrow} = \hat{S}_+\hat{S}_z \ket{\downarrow} +\hbar \hat{S}_+ \ket{\downarrow} = ( - \frac{\hbar}{2} + \hbar) \hat{S}_+ \ket{\downarrow} = +\frac{ \hbar}{2} \hat{S}_+ \ket{\downarrow}
+$$
+
+
+So $\hat{S}_+ \ket{\downarrow}$ is an eigenstate of $\hat{S}_z$ with eigenvalue $+ \frac{\hbar}{2}$. We know that this is the eigenvalue of $\ket{\uparrow}$. 
+\end{flushleft}
+
+
+\subsection{}
+
+\begin{flushleft}
+We wish to express $\hat{S}_- \hat{S}_+$ in terms of $\hat{S}_z$ and $\hat{S}^2$.
+
+$$
+\hat{S}_- \hat{S}_+ = (\hat{S}_x - i \hat{S}_y)(\hat{S}_x + i \hat{S}_y) = \hat{S}_x^2 + \hat{S}_y^2 + i(\hat{S}_x \hat{S}_y - \hat{S}_y \hat{S}_x) 
+$$
+
+$$
+\hat{S}_- \hat{S}_+ = \hat{S}^2 - \hat{S}_z^2 + i[\hat{S}_x, \hat{S}_y] = \hat{S}^2 - \hat{S}_z^2 - \hbar \hat{S}_z
+$$
+\end{flushleft}
+
+\begin{flushleft}
+Find the norm of $\ket{\psi_{1,2}} = \hat{S}_+ \ket{\downarrow,\uparrow}$, using that $\hat{S}_+^{\dagger} = \hat{S}_-$ and $\ket{\downarrow,\uparrow}$ is orthonormal: 
+
+$$
+|\braket{\psi_{1,2}|\psi_{1,2}}| = |(\hat{S}_+ \ket{\downarrow,\uparrow})^{\dagger} \hat{S}_+ \ket{\downarrow, \uparrow}| = |\bra{\downarrow, \uparrow} \hat{S}_- \hat{S}_+ \ket{\downarrow, \uparrow}|
+$$
+
+$$
+|\braket{\psi_{1,2}|\psi_{1,2}}| = |\bra{\downarrow, \uparrow} (\hat{S}^2 - \hat{S}_z^2 - \hbar \hat{S}_z) \ket{\downarrow, \uparrow}|
+$$
+
+Now we do $\psi_1$ and $\psi_2$ separately: 
+
+
+$$
+|\braket{\psi_1|\psi_1}|= |\bra{\downarrow} (\frac{\hbar^2}{2} - \frac{\hbar^2}{4} + \hbar \frac{\hbar}{2}) \ket{\downarrow}| = |\frac{3\hbar^2}{4} \braket{\uparrow|\uparrow}|
+$$
+
+$$
+|\braket{\psi_2|\psi_2}|= |\bra{\uparrow} (\frac{\hbar^2}{2} - \frac{\hbar^2}{4} - \hbar \frac{\hbar}{2}) \ket{\uparrow}| = |-\frac{\hbar^2}{4} \braket{\uparrow|\uparrow}| = \frac{\hbar^2}{4}
+$$
+
+The norms are $\ket{\psi_1} = \sqrt{|\braket{\psi_1|\psi_1}|} = \frac{\sqrt{3} \hbar}{2}$; $\ket{\psi_2} = \sqrt{|\braket{\psi_2|\psi_2}|} = \frac{ \hbar}{2}$ .
+\end{flushleft}
+
+\subsection{}
+
+\begin{flushleft}
+We now have that
+
+\begin{equation}
+\hat{S}_+ \ket{\downarrow} = \hbar \ket{\uparrow} \text{ , } \hat{S}_- \ket{\uparrow} = \hbar \ket{\downarrow}
+\end{equation}
+\end{flushleft}
+
+\begin{flushleft}
+We consider $\ket{\phi} = \frac{1}{\sqrt{2}} \big( 
+\ket{\uparrow} + e^{i \theta} \ket{\downarrow}
+\big)$ where $\theta$ is real. Notice that the probability of $\ket{\downarrow}$ is $|\frac{1}{\sqrt{2}} e^{i\theta}|^2 = \frac{1}{2} e^{i \theta} e^{-i \theta} = \frac{1}{2}$. We want to find the \textit{uncertainty product} $\sigma_{sx}^2 \sigma_{sy}^2$, where:
+
+\begin{equation}
+\sigma_{sx}^2 = \bra{\phi} \Big( 
+\hat{S}_x - \bra{\phi}\hat{S}_x \ket{\phi}
+\Big)^2
+\ket{\phi} 
+\end{equation}
+
+\begin{equation}
+\sigma_{sy}^2 = \bra{\phi} \Big( 
+\hat{S}_y - \bra{\phi}\hat{S}_y \ket{\phi}
+\Big)^2
+\ket{\phi}
+\end{equation}
+
+Fin expressions for $\hat{S}_x$ and $\hat{S}_y$:
+
+$$
+\hat{S}_+ + \hat{S}_- = (\hat{S}_x + i \hat{S}_y) + (\hat{S}_x - i \hat{S}_y) = 2 \hat{S}_x \rightarrow \hat{S}_x = \frac{1}{2} (\hat{S}_+ + \hat{S}_-)
+$$
+
+$$
+\hat{S}_+ - \hat{S}_- = (\hat{S}_x + i \hat{S}_y) - (\hat{S}_x - i \hat{S}_y) = 2 i\hat{S}_y \rightarrow \hat{S}_y = \frac{1}{2i} (\hat{S}_+ - \hat{S}_-)
+$$
+
+We can now find the inner products in $\sigma$, assuming that $\hat{S}_+ \ket{\uparrow} = 0$, $\hat{S}_- \ket{\downarrow} = 0$:
+
+$$
+\bra{\phi} \hat{S}_x \ket{\phi} = \frac{1}{2} \bra{\phi} (\hat{S}_+ + \hat{S}_-) \ket{phi} = \frac{1}{2} \bra{\phi} (\hat{S}_+ + \hat{S}_-) 
+\frac{1}{\sqrt{2}} \big( 
+\ket{\uparrow} + e^{i \theta} \ket{\downarrow}
+\big)
+$$
+
+$$
+= \frac{1}{2} \frac{1}{\sqrt{2}} \big( 
+\bra{\uparrow} + e^{-i \theta} \bra{\downarrow}
+\big) 
+\frac{1}{\sqrt{2}}
+(\hbar e^{i \theta} \ket{\uparrow} + \hbar \ket{\downarrow})
+= \frac{1}{4} \hbar (e^{i \theta} + e^{-i \theta}) = \frac{\hbar
+}{2} \cos \theta
+$$
+
+$$
+\bra{\phi} \hat{S}_y \ket{\phi} 
+= \frac{1}{2i} \bra{\phi} (\hat{S}_+ - \hat{S}_-) \ket{\phi} 
+= \frac{1}{2i} \bra{\phi} (\hat{S}_+ - \hat{S}_-) 
+\frac{1}{\sqrt{2}} \big( 
+\ket{\uparrow} + e^{i \theta} \ket{\downarrow}
+\big)
+$$
+
+$$
+= \frac{1}{2i} \frac{1}{\sqrt{2}} \big( 
+\bra{\uparrow} + e^{-i \theta} \bra{\downarrow}
+\big) 
+\frac{1}{\sqrt{2}}
+(\hbar e^{i \theta} \ket{\uparrow} - \hbar \ket{\downarrow})
+= \frac{1}{4i} \hbar (e^{i \theta} - e^{-i \theta}) = \frac{\hbar
+}{2} \sin \theta
+$$
+
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
